@@ -2,7 +2,7 @@
 // This script manages a to-do list.
 
 // Need a global variable:
-var tasks = []; 
+var tasks = [];
 
 // Function called when the form is submitted.
 // Function adds a task to the global array.
@@ -14,15 +14,15 @@ function addTask() {
 
     // Reference to where the output goes:
     var output = document.getElementById('output');
-    
+
     // For the output:
     var message = '';
 
     if (task.value) {
-    
+
         // Add the item to the array:
         tasks.push(task.value);
-        
+
         // Update the page:
         message = '<h2>To-Do</h2><ol>';
         for (var i = 0, count = tasks.length; i < count; i++) {
@@ -30,17 +30,66 @@ function addTask() {
         }
         message += '</ol>';
         output.innerHTML = message;
-        
+
     } // End of task.value IF.
 
     // Return false to prevent submission:
     return false;
-    
+
 } // End of addTask() function.
+
+
+
+
+function removeDuplicates() {
+	//var temp = tasks;
+	const temp = [];
+	var output = document.getElementById('output');
+	var message = '';
+
+  		/* for (var i = 0, count = tasks.length - 1 ; i < count; i++) {
+        		if (tasks[i] == tasks[tasks.length]) {
+							tasks[i] = "removed";
+        		}
+					}*/
+/*        	var index = tasks.indexOf(tasks[tasks.length]);
+						if (~index) {
+    					tasks[index] = "";
+						}*/
+				// temp.forEach (function(task) {
+				// if(tasks.includes(task)) {
+				// 	temp.remove(temp.indexOf(task));
+				// }
+				// });
+				// tasks = temp;
+
+				tasks.forEach(function(task) {
+					if(!temp.includes(task)){
+						temp.push(task)
+					}
+				});
+				tasks = temp;
+
+        // Update the page:
+        message = '<h2>To-Do</h2><ol>';
+        for (var i = 0, count = tasks.length; i < count; i++) {
+            message += '<li>' + tasks[i] + '</li>';
+        }
+        message += '</ol>';
+        output.innerHTML = message;
+
+
+    // Return false to prevent submission:
+    return false;
+
+}
 
 // Initial setup:
 function init() {
     'use strict';
-    document.getElementById('theForm').onsubmit = addTask;
+
+  document.getElementById('theForm').onsubmit = addTask;
+
+
 } // End of init() function.
 window.onload = init;

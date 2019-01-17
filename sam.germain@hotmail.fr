@@ -1,0 +1,36 @@
+[33mcommit 57d4adce610e7ae3644a8223414daa3cacebe9e4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mcourse/master[m[33m)[m
+Merge: ffed33d c6823af
+Author: Erja <erja.nikunen@gmail.com>
+Date:   Sat Jan 12 15:41:45 2019 +0200
+
+    updated README.md in some other place
+
+[33mcommit ffed33d0ca8b12dcd191ccb24ebf8906fc298003[m
+Author: Erja <erja.nikunen@gmail.com>
+Date:   Sat Jan 12 15:38:09 2019 +0200
+
+    dev tools figures added
+
+[33mcommit c6823afdd8ad7cefe452563b927c6a381e8c432c[m
+Author: Erja Nikunen <erja.nikunen@gmail.com>
+Date:   Fri Jan 11 07:48:04 2019 +0200
+
+    Corrected typos in README.md
+
+[33mcommit 1d8a18d58d80ed660a28147cd27cf1aa37c9046f[m
+Author: Erja Nikunen <erja.nikunen@gmail.com>
+Date:   Fri Jan 11 07:46:34 2019 +0200
+
+    Correxted typos in README.md
+
+[33mcommit 04ec019b046181ee4b6600787a5df9ca1180d367[m
+Author: Erja <erja.nikunen@gmail.com>
+Date:   Thu Jan 10 13:14:05 2019 +0200
+
+    New repository for 2019 course
+
+[33mcommit c05ddf9b13ac67de8f6e98df5fda881bed3f3074[m
+Author: Erja Nikunen <erja.nikunen@gmail.com>
+Date:   Thu Jan 10 13:08:36 2019 +0200
+
+    To be destroyed later.

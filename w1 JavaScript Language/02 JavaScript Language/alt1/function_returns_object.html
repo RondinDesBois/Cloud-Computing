@@ -10,6 +10,7 @@
 		var years = [1955, 1957, 1948, 1954, 1961];
 		var colors = ["red", "blue", "tan", "yellow", "white"];
 		var convertible = [true, false];
+		var engine = [];
 
 		var rand1 = Math.floor(Math.random() * makes.length);
 		var rand2 = Math.floor(Math.random() * models.length);
@@ -17,6 +18,7 @@
 		var rand4 = Math.floor(Math.random() * colors.length);
 		var rand5 = Math.floor(Math.random() * 5);
 		var rand6 = Math.floor(Math.random() * 2);
+		engine = makeEngine();
 
 		var car = {
 			make: makes[rand1],
@@ -25,13 +27,35 @@
 			color: colors[rand4],
 			passengers: rand5,
 			convertible: convertible[rand6],
-			mileage: 0
+			mileage: 0,
+			engine: engine
 		};
 		return car;
 	}
+	function makeEngine() {
 
+		var cylinders = [4, 5, 6, 8, 12];
+		var ccVolume = [1.4, 1.6, 1.8, 2, 2.5];
+		var fuelType = ["diesel", "petrol", "GPL"];
+		var maxTorque = [100, 120, 160, 200, 300];
+
+		var rand1 = Math.floor(Math.random() * cylinders.length);
+		var rand2 = Math.floor(Math.random() * ccVolume.length);
+		var rand3 = Math.floor(Math.random() * fuelType.length);
+		var rand4 = Math.floor(Math.random() * maxTorque.length);
+
+		var engine = {
+			cylinders: cylinders[rand1],
+			ccVolume: ccVolume[rand2],
+			fuelType: fuelType[rand3],
+			maxTorque: maxTorque[rand4],
+
+		};
+
+		return engine
+	}
 	function displayCar(car) {
-		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model);
+		console.log("Your new car is a " + car.year + " " + car.make + " " + car.model + " engine: cylinders:" + car.engine.cylinders + " CC vol:" + car.engine.ccVolume + " fuel type:" + car.engine.fuelType + " max torque:" + car.engine.maxTorque);
 	}
 
 	var carToSell = makeCar();
