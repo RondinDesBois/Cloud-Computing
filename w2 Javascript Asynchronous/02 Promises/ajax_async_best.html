@@ -9,6 +9,14 @@
   <div class="network-fake">
     <label><input type="checkbox"> Fake network delay</label>
   </div>
+  <div id="buttons">
+  	<button class="bt">1</button>
+		<button class="bt">2</button>
+		<button class="bt">3</button>
+		<button class="bt">4</button>
+		<button class="bt">5</button>
+		<div id="output"></div>
+	</div>
   <div class="story"></div>
   <svg class="spinner" viewBox="0 0 100 100" width="20" height="20">
     <circle cx="50" cy="50" r="42" transform="rotate(-90,50,50)" />
@@ -17,6 +25,37 @@
   <script src="js/promise-2.0.4.min.js"></script>
   <script src="js/utils.js"></script>
   <script>
+
+  // Task 3 start
+  		var bts = document.getElementsByClassName("bt")
+
+			var output = document.getElementById("output");
+
+			function makePromises(bt) {
+				var buttonPromise = new Promise(function(resolve, reject) {
+					bt.onclick = function clicked() {
+						resolve(bt);
+						bt.onclick = null;
+					}
+				});
+				return buttonPromise;
+			}
+
+			Array.prototype.map.call(bts, makePromises).reduce(function(chain, buttonPromise){
+				return chain.then(function() {
+					return buttonPromise;
+				}).then(function(bt) {
+					output.innerHTML += bt.innerHTML;
+				})
+			}, Promise.resolve());
+
+  // Task 3 end
+
+
+
+
+
+
     // Use Github Gist when no web server is available
     // getJson('https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json').then(function(story) {
     getJson('data/story.json').then(function(story) {
