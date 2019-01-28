@@ -20,6 +20,19 @@
     // Use Github Gist when no web server is available
     // getJson('https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json').then(function(story) {
     getJson('data/story.json')
+
+    .then(function(story) {
+	  	var myPromise = new Promise(function(resolve, reject) {
+		    var breakPromise = confirm("Do you want to break a promise?");
+		    if (breakPromise) {
+		      reject({message: "User broke the promise"});
+		    } else {
+		      resolve(story);
+		    }
+	  	});
+	  	return myPromise;
+		})
+
     .then(function(story) {
       addHtmlToPage(story.heading);
 
@@ -30,6 +43,21 @@
           // ...fetch the next chapter
           return getJson('data/'+chapterUrl);
         })
+
+				.then(function(chapter) {
+	  			var myPromise = new Promise(function(resolve, reject) {
+		    		var breakPromise = confirm("Do you want to break a promise?");
+		    		if (breakPromise) {
+		    			var err = {message: "User aborted download"};
+							throw(err);
+		      		reject({message: "User aborted download"});
+		    		} else {
+		      		resolve(chapter);
+		    		}
+	  			});
+	  	return myPromise;
+        })
+
         .then(function(chapter) {
           // and add it to the page
           addHtmlToPage(chapter.html);
@@ -48,6 +76,8 @@
       // Always hide the spinner
       document.querySelector('.spinner').style.display = 'none';
     });
+
+    addTextToPage("Hi from the end of the code");
   </script>
 </body>
 </html>

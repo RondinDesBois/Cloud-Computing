@@ -6,8 +6,17 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<style type="text/css">
+				input[type="text"] {
+					color : blue;
+				}
+				input[type="submit"] {
+					font-weight : bold;
+				}
+		</style>
+
 	</head>
-	
+
 	<body>
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
@@ -18,42 +27,49 @@
 				Student id: <input type="text" name="id"  />
 			</div>
 			<div>
-				Email:
+				Email: <input type="email" name="Email"  />
 				<!--
 				Make an input named "email"
 				-->
 			</div>
 			<div>
-				Assignment:
+					<form>
+						  <input type="radio" name="gender" value="male" checked> Male<br>
+						  <input type="radio" name="gender" value="female"> Female<br>
+						  <input type="radio" name="gender" value="other"> Other
+					</form>
+			</div>
+			<div>
+				Assignment: <input type="text" name="Assignment"  />
 				<!--
 				Make an input named "assignment"
 				-->
-				
+
 			</div>
 
 			<div>
-				Code:
+				Code: <input type="number" name="Code"  />
 				<!--
 				Make an input named "code" which is a text area to put student's code into.
 				-->
-				
+
 			</div>
 			<div>
-				Cheat:
+				Cheat: <input type="checkbox" name="Cheat"  />
 			<!--
 				Make an input named "cheat" which is a check box the student must check.
 			-->
 			</div>
 			<div>
-				Pay:
+				Pay: <input type="text" name="Pay"  />
 			<!--
 				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
 			-->
 			</div>
 			<div>
-				Score:
+				Score: <input type="range" name="Score"  />
 			<!--
-				Make an input named "score" which is a list of choices for the score 
+				Make an input named "score" which is a list of choices for the score
 			-->
 			</div>
 			<input type="submit" />

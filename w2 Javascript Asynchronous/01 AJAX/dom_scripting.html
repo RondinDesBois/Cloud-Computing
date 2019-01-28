@@ -18,7 +18,7 @@
         var helloButton = U.$('hello');
         var clickAction = function() { alert('Well HELLO!'); };
         U.addEvent(helloButton, 'click', clickAction);
-        
+
         // this one removes the listener after a click
         var helloOnce = U.$('hi');
         var alertOnce = function() {
@@ -26,6 +26,10 @@
             U.removeEvent(helloOnce, 'click', alertOnce);
         };
         U.addEvent(helloOnce, 'click', alertOnce);
+
+				window.$live('#hello', 'click', (event) => { alert('Well HELLO!'); });
+        window.$live('#hi', 'click', (event) => { alert('Well HELLO!'); U.$('hi').disabled = true; });
+        window.$live('#write', 'click', () => { U.setText('output', "Writing some new text for you.") });
 
         var writeText = U.$('write');
         U.addEvent(writeText, 'click', function() {

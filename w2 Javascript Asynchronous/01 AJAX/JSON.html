@@ -5,21 +5,41 @@
   <title> JSON </title>
   <script>
 
-var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
-var fido = JSON.parse(fidoString);
-console.log("We have made a dog out of a string! " + fido.name);
+		var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
+		var fido = JSON.parse(fidoString);
+		console.log("We have made a dog out of a string! " + fido.name);
 
 
-var fido2 = {
-	name: "Fido",
-	breed: "Mixed",
-	weight: 38
-};
-var fidoString = JSON.stringify(fido2);
-console.log("We made a string from a dog! " + fidoString);
+		var fido2 = {
+			name: "Fido",
+			breed: "Mixed",
+			weight: 38
+
+		};
+		var myfido = {
+			name: "doly",
+			breed: {
+				name: "cavalier king charl",
+				color: "brown & white"
+			},
+			age: "10"
+		};
+		var myfidoString = JSON.stringify(myfido);
+		var breedname = JSON.stringify(myfido.breed);
+		var fidoString = JSON.stringify(fido2);
+		console.log("We made a mystring from a mydog! " + myfidoString);
+		console.log("We made a string from a dog! " + fidoString);
+		console.log("breed name string: " + breedname);
+
+		window.onload = function() {
+			document.getElementById("div1").innerHTML = myfidoString;
+			document.getElementById("div2").innerHTML = breedname;
+		}
 
   </script>
 </head>
 <body>
+	<div id = "div1">result:</div>
+	<div id = "div2">breed name:</div>
 </body>
 </html>

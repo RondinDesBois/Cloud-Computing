@@ -10,6 +10,10 @@
     Make a request
   </span>
 
+	<form id="form">
+		<input type="text" name="myRequest" id = "myRequest"/>
+		<input type="submit" value="Submit"/>
+	</form>
 
   <script type="text/javascript">
   (function() {
@@ -17,7 +21,11 @@
     var testUrl = 'data/story.json';
     // Use Github Gist when no web server is available
     // var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
-    document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
+    //document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
+
+			document.getElementById("form").addEventListener("submit", function(e) { e.preventDefault(); makeRequest(document.getElementById("myRequest").value) });
+
+
 
     function makeRequest(url) {
       if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -25,11 +33,11 @@
       } else if (window.ActiveXObject) { // IE
         try {
           httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-        } 
+        }
         catch (e) {
           try {
             httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-          } 
+          }
           catch (e) {}
         }
       }
@@ -53,8 +61,11 @@
       if (httpRequest.readyState === 4) {
         if (httpRequest.status === 200) {
           alert(httpRequest.responseText);
-        } else {
-          alert('There was a problem with the request.');
+        }else {
+        	 if (httpRequest.status === 404) {
+        			alert('error 404 NOT FOUND');
+        	 }else alert('There was a problem with the request.');
+
         }
       }
     }

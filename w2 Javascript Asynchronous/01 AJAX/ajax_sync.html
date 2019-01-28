@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>AJAX test</title>
 </head>
 <body>
@@ -14,6 +15,7 @@
   </svg>
 
   <script src="js/ajax_utils.js"></script>
+  <script src="js/definition.js"></script>
   <script>
     try {
       // Use Github Gist when no web server is available
@@ -26,13 +28,40 @@
         addHtmlToPage(chapter.html);
       });
 
+
+
       addTextToPage("All done");
+
     }
     catch (err) {
       addTextToPage("Argh, broken: " + err.message);
     }
 
     document.querySelector('.spinner').style.display = 'none';
+
+    function get_selection() {
+	    var txt = '';
+	    if (window.getSelection) {
+	        txt = window.getSelection();
+	    } else if (document.getSelection) {
+	        txt = document.getSelection();
+	    } else if (document.selection) {
+	        txt = document.selection.createRange().text;
+	    }
+	    return txt;
+		}
+
+	$(document).dblclick(function(e) {
+	    var t = get_selection();
+	    alert(t);
+	    definition.setWord(t,function(data) {
+	    	console.log('Def: ' + JSON.stringify(data, null, 2));
+	    	alert('Def: ' + JSON.stringify(data, null, 2));
+        });
+
+	});
+
+
   </script>
 </body>
 </html>

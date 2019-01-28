@@ -24,7 +24,7 @@ var fakeSlowNetwork;
 //   to simulate a real network scenario which you can ignore for now
 //   but which will be relevant when we construct ASYNC callbacks next week
 
-// ******* 
+// *******
 // AJAX STUFF
 // *******
 function getSync(url) {
@@ -52,7 +52,7 @@ function getJsonSync(url) {
 }
 
 
-// ******* 
+// *******
 // DOM STUFF
 // *******
 var storyDiv = document.querySelector('.story');
@@ -68,3 +68,4 @@ function addTextToPage(content) {
   p.textContent = content;
   storyDiv.appendChild(p);
 }
+

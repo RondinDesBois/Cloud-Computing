@@ -47,22 +47,6 @@ function removeDuplicates() {
 	var output = document.getElementById('output');
 	var message = '';
 
-  		/* for (var i = 0, count = tasks.length - 1 ; i < count; i++) {
-        		if (tasks[i] == tasks[tasks.length]) {
-							tasks[i] = "removed";
-        		}
-					}*/
-/*        	var index = tasks.indexOf(tasks[tasks.length]);
-						if (~index) {
-    					tasks[index] = "";
-						}*/
-				// temp.forEach (function(task) {
-				// if(tasks.includes(task)) {
-				// 	temp.remove(temp.indexOf(task));
-				// }
-				// });
-				// tasks = temp;
-
 				tasks.forEach(function(task) {
 					if(!temp.includes(task)){
 						temp.push(task)
