@@ -2,7 +2,7 @@
 <head>
   <title>Component example</title>
   <script src="https://unpkg.com/vue"></script>
-    
+
 </head>
 <body>
 <div id ="blog-post-demo" class="demo">
@@ -10,6 +10,7 @@
   v-for="post in posts"
   v-bind:key="post.id"
   v-bind:post="post.title"
+  v-html:post="post.title"
 ></blog-post>
 </div>
 <script type="text/javascript">
