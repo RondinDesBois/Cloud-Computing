@@ -15,15 +15,20 @@ do {
   parameter or -1 if it is not found. Notice the use of === to compare the two values,
   this is a 'strict' comparison and should always be used instead of ==. It checks for
   equal values and equal type. */
+
 	if (input.indexOf('add ') === 0) {
     /* This time the indexOf() function is used to locate the first space character. */
 		let space = input.indexOf(' ')
     /* the substring() function returns the string after the specified position. This will include the space character and so the result is trimmed of any whitespace. */
+
 		let item = input.substring(space+1).trim()
+		item = item.toLowerCase();
     /* console.log() prints to the terminal. */
-		console.log('adding "'+item+'"')
-    /* All arrays have a built-in push() function which appends an item to their end. */
-		items.push(item) //unshift make it lifo (last in first out ;)
+   	if(items.indexOf(item) == -1) {
+			console.log('adding "'+item+'"')
+   		/* All arrays have a built-in push() function which appends an item to their end. */
+			items.push(item) //unshift make it lifo (last in first out ;)
+   	} else console.log('"'+item+ '" already exist ')
 	}
 	if (input.indexOf('list') === 0) {
     /* Here we use a for...next loop to interate through all the array indexes. The let keyword defines a variable with _block_ scope (more on this later). */
@@ -31,6 +36,17 @@ do {
       /* Here we reference the array index. */
 			console.log(i+'. '+items[i])
 		}
+	}
+	if (input.indexOf('rm') === 0) {
+		let space = input.indexOf(' ')
+		let item = input.substring(space+1).trim()
+
+		if(items.indexOf(item) != -1) {
+
+   		var removed = items.splice(items.indexOf(item), 1);
+			console.log('removing "'+removed+'"')
+
+   	} else console.log('"'+item+ '" does not exist ')
 	}
   /* the code will loop unless the input was _exit_. Notice the use of !== in the comparison instead of the more typical !=. This is a strict negating comparison. This means 'not equal and not equal type' */
 } while (input !== 'exit')
