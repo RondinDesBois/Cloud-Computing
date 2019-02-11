@@ -10,7 +10,7 @@ var items = []
 do {
   /* We capture the text input by the user. This is then converted into a String and finally any _whitespace_ (newline characters, spaces, etc) are removed. */
     // try switching for a let... or a const...
-	var input = String(readline.question('enter command: ')) 
+	var input = String(readline.question('enter command: '))
   /* The indexOf() function looks for the first ocurrance of the supplied string
   parameter or -1 if it is not found. Notice the use of === to compare the two values,
   this is a 'strict' comparison and should always be used instead of ==. It checks for
@@ -23,7 +23,7 @@ do {
     /* console.log() prints to the terminal. */
 		console.log('adding "'+item+'"')
     /* All arrays have a built-in push() function which appends an item to their end. */
-		items.push(item)
+		items.push(item) //unshift make it lifo (last in first out ;)
 	}
 	if (input.indexOf('list') === 0) {
     /* Here we use a for...next loop to interate through all the array indexes. The let keyword defines a variable with _block_ scope (more on this later). */
