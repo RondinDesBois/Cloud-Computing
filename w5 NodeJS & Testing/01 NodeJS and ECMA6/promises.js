@@ -23,9 +23,18 @@ function capitalise(string) {
         resolve(cap)
     })
 }
+var capitaliseLast = (string) => {
+    return new Promise((resolve, reject) => {
+        /* the 'let' keyword means the scope of the following variable is limited to the current code block rather than being scoped by the function. Use of this required strict mode to be implemented. */
+        let cap =  string.slice(1) + string.charAt(string.length-1).toUpperCase()
+        //reject('could not capitalise the string')
+        resolve(cap)
+    })
+}
 
 /* this promise chain uses the 'traditional' syntax to declare anonymous functions. Notice that the is quite verbose. */
-function promise1(data) {
+//function promise1(data) {
+var promise1 = (data) => {
   reverse(data).then(function(data) {
     /* capitalise() returns a new promise. */
     return capitalise(data)
@@ -50,7 +59,7 @@ function promise2(data) {
 /* In this third version we take advantage of the fact that when resolving a promise the return value is implicit so we don't need to include it. */
 function promise3(data) {
   reverse(data)
-    .then( data => capitalise(data)  )
+    .then( data => capitaliseLast(data)  )
     .then( data => console.log(data) )
     .catch( (e) => console.log('an error occurred: '+e) )
 }

@@ -48,26 +48,26 @@ exports.delete = bookId => {
     /* this throws a user-defined exception. */
     throw('bookId should be 12 character long')
   }
-  if (bookList.indexOf(bookId) != -1) {
+  if (bookList.indexOf('bookId') != -1) {
     throw('book does not exist in the list')
   }
-  bookList.splice( bookList.indexOf(bookId), 1 );
+  bookList.splice( bookList.indexOf('bookId'), 1 );
   //console.log(bookList.length)
   return 'book '+bookId+' deleted'
 }
 
-exports.info = bookId => {
-  if (bookId.length != 12) {
-    /* this throws a user-defined exception. */
-    throw('bookId should be 12 character long')
-  }
-  if (bookList.indexOf(bookId) != -1) {
-    throw('book does not exist in the list')
-  }
-  bookList.indexOf(bookId).description;
-  //console.log(bookList.length)
-  return 'book '+bookId+' deleted'
-}
+//exports.info = bookId => {
+//  if (bookId.length != 12) {
+//    /* this throws a user-defined exception. */
+//    throw('bookId should be 12 character long')
+//  }
+//  if (bookList.indexOf(bookId) != -1) {
+//    throw('book does not exist in the list')
+//  }
+//  bookList.indexOf(bookId).volumeInfo;
+//  //console.log(bookList.length)
+//  return ''+bookId+''
+//}
 
 exports.bookCount = () => {
   return bookList.length
