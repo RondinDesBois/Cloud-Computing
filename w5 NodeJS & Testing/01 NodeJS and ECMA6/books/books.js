@@ -43,6 +43,18 @@ exports.add = bookId => {
   //console.log(bookList.length)
   return 'book '+bookId+' added'
 }
+exports.delete = bookId => {
+  if (bookId.length != 12) {
+    /* this throws a user-defined exception. */
+    throw('bookId should be 12 character long')
+  }
+  if (bookList.indexOf(bookId) != -1) {
+    throw('book does not exist in the list')
+  }
+  bookList.splice( bookList.indexOf(bookId), 1 );
+  //console.log(bookList.length)
+  return 'book '+bookId+' deleted'
+}
 
 exports.bookCount = () => {
   return bookList.length
