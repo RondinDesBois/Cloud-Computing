@@ -31,11 +31,11 @@ input.on('data', chunk => {
     } finally {
       console.log('the list contains '+books.bookCount()+' books')
     }
-  } else if (text.indexOf('delete ') === 0) {
-    console.log('adding "'+item+'"')
+  } else if (text.indexOf('delete ') === 0) { //delete
+    console.log('deleting "'+item+'"')
     /* we wrap our code in a 'try' block */
     try {
-      const result = books.add(item)
+      const result = books.delete(item)
       console.log(result)
     } catch (err) {
       /* if an exception is thrown the program flow jumps to the 'catch' block, the exception is stored in the 'err' parameter. */
